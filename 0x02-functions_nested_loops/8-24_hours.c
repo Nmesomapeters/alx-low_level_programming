@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- * jack_bauer - Prints the minutes of a day
- *
- * Return: no return
+ * jack_bauer - prints time table in this format: HH:MM
+ * Return: the sum of two numbers.
  */
 void jack_bauer(void)
 {
