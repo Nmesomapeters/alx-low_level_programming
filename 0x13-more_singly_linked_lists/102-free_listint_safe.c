@@ -52,7 +52,7 @@ size_t looped_listint_count(listint_t *head)
  * free_listint_safe - it frees a listint_t list.
  * @h: head
  * Return: The size of node
- * Description:  sets the head to NULL.
+ * Description: it  sets the head to NULL.
  */
 size_t free_listint_safe(listint_t **h)
 {
