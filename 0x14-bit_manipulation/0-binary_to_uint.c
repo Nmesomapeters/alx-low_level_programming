@@ -7,7 +7,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int number = 0, mult = 1;
+	unsigned int num = 0, mult = 1;
 	int len;
 
 	if (b == '\0')
@@ -21,11 +21,11 @@ unsigned int binary_to_uint(const char *b)
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
 
-		number += (b[len] - '0') * mult;
+		num += (b[len] - '0') * mult;
 		mult *= 2;
 	}
 
-	return (number);
+	return (num);
 }
 
 
