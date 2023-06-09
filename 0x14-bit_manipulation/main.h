@@ -6,7 +6,7 @@
 
 /*
  * File: main.h
- * Desc: header file containing prototypes for functions written in the 0x13-bit_manipulation directories
+ * Desc: header file containing prototypes
  */
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
