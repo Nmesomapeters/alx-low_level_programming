@@ -4,18 +4,15 @@
  * get_bit -  function that gets a bit at the index.
  * @n: number
  * @index: index
- * Return:value of the bit or -1 only if an error occured.
+ * Return: value of the bit 1 or -1 only if an error occured.
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int high = 0x01;
-
-	high <<= index;
-	if (high == 0)
+	if (index >= (sizeof(unsigned long int) * 8))
 		return (-1);
 
-	if ((n & high))
-		return (1);
-	else
+	if ((n & (1 << index)) == 0)
 		return (0);
+
+	return (1);
 }
