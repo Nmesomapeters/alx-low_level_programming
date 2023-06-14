@@ -6,33 +6,33 @@
  * read_textfile - reads a text file and prints it to stdout
  * @filename: name of the file to read
  * @letters: number of bytes to read and print
- *
- * Return: number of bytes actually read and printed, or 0 on failure
+ * Return: number of bytes actually read and printed, or 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	ssize_t file, let, n;
+	char *text;
+
+	text = malloc(letters);
+	if (text == NULL)
+		return (0);
+
 	if (filename == NULL)
 		return (0);
-	FILE *file = fopen(filename, "m");
 
-	if (file == NULL)
-		return (0);
+	file = open(filename, O_RDONLY);
 
-	ssize_t bytes_read = fread(buffer, sizeof(char), letters, file);
-
-	if (ferror(file))
+	if (file == -1)
 	{
-		free(buffer);
-		fclose(file);
+		free(text);
 		return (0);
 	}
 
-	buffer[bytes_read] = '\0';
-	printf("%s", buffer);
+	let = read(file, text, letters);
 
-	free(buffer);
+	n = write(STDOUT_FILENO, text, let);
 
-	fclose(file);
+	close(file);
 
-	return (bytes_read);
+	return (n);
 }
