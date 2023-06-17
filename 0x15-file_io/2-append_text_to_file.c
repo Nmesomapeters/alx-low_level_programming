@@ -10,6 +10,7 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
+<<<<<<< HEAD
 	int m = 0, file;
 
 	if (filename == NULL)
@@ -24,12 +25,37 @@ int append_text_to_file(const char *filename, char *text_content)
 		m++;
 	}
 
+=======
+	int file;
+	int numletters;
+	int gwg;
+
+	if (!filename)
+		return (-1);
+
+>>>>>>> 53a3e633997bdf6c075ccee809e1abb645136bb1
 	file = open(filename, O_WRONLY | O_APPEND);
 
 	if (file == -1)
 		return (-1);
+<<<<<<< HEAD
 
 	write(file, text_content, m);
+=======
+
+	if (text_content)
+	{
+		for (numletters = 0; text_content[numletters]; numletters++)
+			;
+
+		gwg = write(file, text_content, numletters);
+
+		if (gwg == -1)
+			return (-1);
+	}
+
+	close(file);
+>>>>>>> 53a3e633997bdf6c075ccee809e1abb645136bb1
 
 	return (1);
 }
