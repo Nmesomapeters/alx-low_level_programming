@@ -1,67 +1,24 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
- * free_listp - it frees linked list
- * @head: head.
- * Return: void
- */
-void free_listp(listp_t **head)
-{
-	listp_t *temp;
-	listp_t *curr;
-
-	if (head != NULL)
-	{
-		curr = *head;
-		while ((temp = curr) != NULL)
-		{
-			curr = curr->next;
-			free(temp);
-		}
-		*head = NULL;
-	}
-}
-
-/**
- * print_listint_safe - it prints linked lists
+ * reverse_listint -it  prints a listint_t linked list.
  * @head: head
- * Return: nnodes
- */
+ * Return: pichu
+ **/
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nnodes = 0;
-	listp_t *hptr, *new, *add;
+	size_t pichu = 0;
+	const listint_t *aux_node = head;
 
-	hptr = NULL;
-	while (head != NULL)
+	if (!head)
+		exit(98);
+
+	while (aux_node)
 	{
-		new = malloc(sizeof(listp_t));
-
-		if (new == NULL)
-			exit(98);
-
-		new->p = (void *)head;
-		new->next = hptr;
-		hptr = new;
-
-		add = hptr;
-
-		while (add->next != NULL)
-		{
-			add = add->next;
-			if (head == add->p)
-			{
-				printf("-> [%p] %d\n", (void *)head, head->n);
-				free_listp(&hptr);
-				return (nnodes);
-			}
-		}
-
-		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-		nnodes++;
+		printf("[%p] %i\n", (void *)aux_node, aux_node->n);
+		aux_node = aux_node->next;
+		pichu++;
 	}
-
-	free_listp(&hptr);
-	return (nnodes);
+	return (pichu);
 }
