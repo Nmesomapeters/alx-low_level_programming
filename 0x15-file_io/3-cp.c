@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 /**
-* main - it copies the content of a file to another file
-* @argc: number argument
-* @argv: Strings argument
+* main - it copies the content of a file
+* @argc: argument.
+* @argv: Strings arguments
 * Return: 0
 */
 int main(int argc, char *argv[])
